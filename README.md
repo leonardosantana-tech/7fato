@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 7FATO 🎧
 
-## Getting Started
+Estúdio de produção musical profissional, mixagem e masterização de alto nível em São Paulo. Este projeto foi desenvolvido com foco em performance, escalabilidade e experiência do usuário premium.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O projeto utiliza as tecnologias mais modernas do ecossistema Next.js:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js 16 (App Router)](https://nextjs.org/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **State Management:** [Zustand](https://zustand-demo.pmnd.rs/) (Global Audio Player)
+- **Audio Engine:** [Howler.js](https://howlerjs.com/)
+- **Internationalization:** i18n Nativo (PT-BR / EN) com detecção automática de locale.
+- **Icons:** [Lucide React](https://lucide.dev/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Arquitetura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Estrutura baseada em **Clean Architecture** para facilitar a manutenção:
 
-## Learn More
+- `/src/i18n`: Dicionários e configurações de internacionalização.
+- `/src/store`: Estado global (Zustand) para manter o áudio tocando entre navegações.
+- `/src/hooks`: Hooks customizados para abstração de lógica.
+- `/src/lib`: Configurações de terceiros (Howler, Tailwind Merge).
+- `/src/utils`: Funções utilitárias puras (Normalização de strings, etc).
 
-To learn more about Next.js, take a look at the following resources:
+## 🏁 Como Rodar o Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Instale as dependências:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    pnpm install
+    ```
 
-## Deploy on Vercel
+2.  **Inicie o servidor de desenvolvimento:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    pnpm dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3.  **Acesse o projeto:**
+    O middleware redirecionará automaticamente para: [http://localhost:3000/pt](http://localhost:3000/pt)
+
+## 🚧 Roadmap de Desenvolvimento
+
+- [x] Setup de Arquitetura & i18n
+- [x] Engine de Áudio & Global Store
+- [x] Configuração Tailwind v4 (Identidade 7FATO)
+- [ ] UI: Header & Seletor de Idioma
+- [ ] UI: Player Visual Persistente
+- [ ] Portfólio de Beats & Checkout
+
+---
+
+Desenvolvido por **Sir. Akally**.
