@@ -32,7 +32,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          High-End Music Production
+          Produção Musical Profissional
         </motion.span>
 
         <h1 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6">

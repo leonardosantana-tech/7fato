@@ -18,8 +18,8 @@ export default function AboutPreview() {
             plataformas de streaming exigem hoje.
           </p>
           <p className="text-gray-500 text-sm italic">
-            Localizado no coração de São Paulo, transformamos ideias brutas em
-            fonogramas de alta performance.
+            Localizado na Zona Leste de São Paulo, transformamos ideias em
+            sonoridade.
           </p>
         </div>
       </div>
