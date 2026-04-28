@@ -1,64 +1,99 @@
 import { create } from "zustand";
-import { Howl } from "howler";
+import { persist, createJSONStorage } from "zustand/middleware";
+import { audioEngine } from "@/lib/howler";
 
-interface Track {
+export type Track = {
   id: string;
   title: string;
-  artist: string;
   url: string;
-  cover: string;
-}
+  cover?: string;
+};
 
-interface PlayerState {
+type PlayerState = {
   currentTrack: Track | null;
   isPlaying: boolean;
   volume: number;
-  howl: Howl | null;
+  progress: number;
+  duration: number;
+  _hasHydrated: boolean;
 
-  // Ações
-  setTrack: (track: Track) => void;
+  setHasHydrated: (state: boolean) => void;
+  playTrack: (track: Track) => void;
   togglePlay: () => void;
-  setVolume: (volume: number) => void;
-}
+  setVolume: (v: number) => void;
+  seek: (time: number) => void;
+};
 
-export const usePlayerStore = create<PlayerState>((set, get) => ({
-  currentTrack: null,
-  isPlaying: false,
-  volume: 0.5,
-  howl: null,
+export const usePlayerStore = create<PlayerState>()(
+  persist(
+    (set, get) => ({
+      currentTrack: null,
+      isPlaying: false,
+      volume: 0.7,
+      progress: 0,
+      duration: 0,
+      _hasHydrated: false,
 
-  setTrack: (track) => {
-    const { howl } = get();
-    if (howl) howl.stop(); // Para o áudio atual antes de começar o novo
+      setHasHydrated: (state) => set({ _hasHydrated: state }),
 
-    const newHowl = new Howl({
-      src: [track.url],
-      html5: true,
-      volume: get().volume,
-      onplay: () => set({ isPlaying: true }),
-      onpause: () => set({ isPlaying: false }),
-      onstop: () => set({ isPlaying: false }),
-    });
+      playTrack: (track) => {
+        const { currentTrack, volume } = get();
+        const isSame = currentTrack?.id === track.id;
 
-    newHowl.play();
-    set({ currentTrack: track, howl: newHowl, isPlaying: true });
-  },
+        if (!isSame) {
+          audioEngine.load(track.url, volume);
+          audioEngine.onProgress((seek, duration) => {
+            set({ progress: seek, duration });
+          });
+        }
 
-  togglePlay: () => {
-    const { howl, isPlaying } = get();
-    if (!howl) return;
+        audioEngine.play();
+        set({ currentTrack: track, isPlaying: true });
+      },
 
-    if (isPlaying) {
-      howl.pause();
-    } else {
-      howl.play();
-    }
-    set({ isPlaying: !isPlaying });
-  },
+      togglePlay: () => {
+        const { isPlaying, currentTrack, volume } = get();
+        if (!currentTrack) return;
 
-  setVolume: (volume) => {
-    const { howl } = get();
-    if (howl) howl.volume(volume);
-    set({ volume });
-  },
-}));
+        if (isPlaying) {
+          audioEngine.pause();
+          set({ isPlaying: false });
+        } else {
+          // 🔥 FIX: Garante que o áudio seja carregado se vier do Storage pós-recarregamento
+          audioEngine.load(currentTrack.url, volume);
+          audioEngine.onProgress((seek, duration) => {
+            set({ progress: seek, duration });
+          });
+
+          audioEngine.play();
+          set({ isPlaying: true });
+        }
+      },
+
+      setVolume: (v) => {
+        audioEngine.setVolume(v);
+        set({ volume: v });
+      },
+
+      seek: (time) => {
+        audioEngine.seek(time);
+        set({ progress: time });
+      },
+    }),
+    {
+      name: "7fato-player-storage",
+      storage: createJSONStorage(() => localStorage),
+      onRehydrateStorage: () => (state) => {
+        if (!state) return;
+
+        // 🔥 AUTO-SYNC: Sincroniza o volume salvo com a engine de áudio
+        audioEngine.setVolume(state.volume);
+        state.setHasHydrated(true);
+      },
+      partialize: (state) => ({
+        currentTrack: state.currentTrack,
+        volume: state.volume,
+      }),
+    },
+  ),
+);

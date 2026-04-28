@@ -1,6 +1,6 @@
 # 7FATO 🎧
 
-Estúdio de produção musical profissional, mixagem e masterização de alto nível em São Paulo. Este projeto foi desenvolvido com foco em performance, escalabilidade e experiência do usuário premium.
+Estúdio de produção musical profissional, mixagem e masterização de alto nível em São Paulo. Este projeto foi desenvolvido com foco em performance, escalabilidade e experiência do usuário.
 
 ## 🚀 Tech Stack
 
@@ -48,7 +48,3 @@ Estrutura baseada em **Clean Architecture** para facilitar a manutenção:
 - [ ] UI: Header & Seletor de Idioma
 - [ ] UI: Player Visual Persistente
 - [ ] Portfólio de Beats & Checkout
-
----
-
-Desenvolvido por **Sir. Akally**.
