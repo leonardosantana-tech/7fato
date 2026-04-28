@@ -1,23 +1,30 @@
-import BeatCard from "@/components/beats/BeatCard";
-import { beats } from "@/data/mock/beats";
+import Hero from "@/components/sections/home/Hero";
+import FeaturedBeats from "@/components/sections/home/FeaturedBeats";
+import Services from "@/components/sections/home/Services";
+import AboutPreview from "@/components/sections/home/AboutPreview";
+import SocialProof from "@/components/sections/home/SocialProof";
+import CTA from "@/components/sections/home/CTA";
 
 export default function Home() {
   return (
-    <main className="container mx-auto p-8 pt-24 space-y-6">
-      <header className="mb-12">
-        <h1 className="text-5xl font-black tracking-tighter italic uppercase">
-          Beats
-        </h1>
-        <p className="text-gray-400">
-          Selecione a base para o seu próximo hit.
-        </p>
-      </header>
+    <div className="flex flex-col w-full">
+      {/* 1. Impacto Visual */}
+      <Hero />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {beats.map((beat) => (
-          <BeatCard key={beat.id} beat={beat} />
-        ))}
-      </div>
-    </main>
+      {/* 2. Vitrine de Beats (Antiga lista que estava aqui) */}
+      <FeaturedBeats />
+
+      {/* 3. Gravação Mix e Master */}
+      <Services />
+
+      {/* 4. Sobre */}
+      <AboutPreview />
+
+      {/* 5. Depoimentos */}
+      <SocialProof />
+
+      {/* 6. Chamada para ação */}
+      <CTA />
+    </div>
   );
 }
