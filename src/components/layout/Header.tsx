@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 
 export default function Header() {
-  const { locale } = useParams();
+  const params = useParams();
+  // Se params.locale não existir, usamos 'pt' como padrão para evitar o 'undefined'
+  const locale = params?.locale || "pt";
 
   return (
     <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-md border-b border-white/5 p-4 z-50">
@@ -17,6 +19,7 @@ export default function Header() {
         </Link>
 
         <nav className="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+          {/* Usando o locale de forma segura nos links */}
           <Link
             href={`/${locale}`}
             className="hover:text-white transition-colors"
@@ -38,8 +41,9 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          {/* Espaço reservado para busca/idioma futuramente */}
-          <span className="text-[10px] text-white/20">STUDIO SELECTION</span>
+          <span className="text-[10px] text-white/20 uppercase font-bold tracking-widest">
+            Studio Selection
+          </span>
         </div>
       </div>
     </header>
