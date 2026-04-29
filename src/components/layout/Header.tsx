@@ -108,6 +108,13 @@ export default function Header() {
             Portfólio
           </Link>
 
+          <Link
+            href={`/${locale}/sobre`}
+            className="hover:text-white transition-colors"
+          >
+            Sobre
+          </Link>
+
           {/* 🌍 LANGUAGE */}
           <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
             <Globe size={12} className="text-white/40" />
@@ -199,6 +206,10 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             >
               Portfólio
+            </Link>
+
+            <Link href={`/${locale}/sobre`} onClick={() => setMenuOpen(false)}>
+              Sobre
             </Link>
 
             <div className="h-[1px] bg-white/10 my-4" />
