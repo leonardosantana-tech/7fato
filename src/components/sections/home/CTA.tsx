@@ -24,7 +24,15 @@ export default function CTA() {
           </a>
           <span>/</span>
           <a href="#" className="hover:text-white transition-colors">
-            WhatsApp
+            Youtube
+          </a>
+          <span>/</span>
+          <a href="#" className="hover:text-white transition-colors">
+            TikTok
+          </a>
+          <span>/</span>
+          <a href="#" className="hover:text-white transition-colors">
+            Twitch
           </a>
           <span>/</span>
           <a href="#" className="hover:text-white transition-colors">
