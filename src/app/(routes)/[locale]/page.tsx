@@ -4,6 +4,7 @@ import Services from "@/components/sections/home/Services";
 import AboutPreview from "@/components/sections/home/AboutPreview";
 import SocialProof from "@/components/sections/home/SocialProof";
 import CTA from "@/components/sections/home/CTA";
+import PortfolioSection from "@/components/sections/portfolio/PortfolioSection";
 
 export default function Home() {
   return (
@@ -17,13 +18,16 @@ export default function Home() {
       {/* 3. Gravação Mix e Master */}
       <Services />
 
-      {/* 4. Sobre */}
+      {/* 4. Portfolio / Artistas */}
+      <PortfolioSection />
+
+      {/* 5. Sobre */}
       <AboutPreview />
 
-      {/* 5. Depoimentos */}
+      {/* 6. Depoimentos */}
       <SocialProof />
 
-      {/* 6. Chamada para ação */}
+      {/* 7. Chamada para ação */}
       <CTA />
     </div>
   );
