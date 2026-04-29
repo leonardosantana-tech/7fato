@@ -61,7 +61,7 @@ export default function Hero() {
       {/* DECORAÇÃO LATERAL */}
       <div className="absolute bottom-10 left-10 z-20 hidden lg:block">
         <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest text-white/20 uppercase rotate-90 origin-left">
-          <span>São Paulo // SP</span>
+          <span>SP</span>
           <div className="w-12 h-[1px] bg-white/20" />
           <span>7Fato Studio</span>
         </div>
