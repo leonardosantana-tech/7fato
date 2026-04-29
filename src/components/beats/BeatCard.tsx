@@ -25,8 +25,8 @@ export default function BeatCard({ beat }: any) {
           onClick={() => playTrack(beat)}
           className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-full font-bold text-xs uppercase tracking-widest transition-all ${
             isCurrent && isPlaying
-              ? "bg-white text-black scale-[0.98]"
-              : "bg-white/10 text-white hover:bg-white hover:text-black"
+              ? "bg-primary text-white scale-[0.98] shadow-lg shadow-primary/20 animate-pulse"
+              : "bg-white/10 text-white hover:bg-primary hover:text-black"
           }`}
         >
           <Play size={14} fill="currentColor" />

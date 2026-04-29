@@ -14,7 +14,7 @@ const servicesData = {
     {
       icon: Sliders,
       title: "Mixagem",
-      desc: "Equilíbrio, clareza e impacto sonoro para sua produção se destacar.",
+      desc: "Equilíbrio, estética e profundidade sonora para sua produção se destacar.",
     },
     {
       icon: Music,
@@ -84,11 +84,11 @@ export default function ServicesSection() {
                 hidden: { opacity: 0, y: 20 },
                 show: { opacity: 1, y: 0 },
               }}
-              className="group bg-white/[0.03] border border-white/10 rounded-3xl p-8 hover:border-[#09a401]/50 transition-all duration-500"
+              className="group bg-white/[0.03] border border-white/10 rounded-3xl p-8 hover:border-white/50 transition-all duration-500"
             >
-              <div className="bg-[#09a401]/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#09a401] transition-colors duration-500">
+              <div className="bg-primary/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
                 <Icon
-                  className="text-[#09a401] group-hover:text-white transition-colors"
+                  className="text-primary group-hover:text-white transition-colors"
                   size={28}
                 />
               </div>
@@ -117,7 +117,7 @@ export default function ServicesSection() {
 
         <button
           onClick={() => window.open("https://instagram.com/7fato", "_blank")}
-          className="group flex items-center gap-3 bg-[#09a401] mx-auto px-10 py-4 rounded-full font-bold text-white hover:scale-105 transition-all shadow-xl shadow-[#09a401]/10"
+          className="group flex items-center gap-3 bg-primary mx-auto px-10 py-4 rounded-full font-bold text-white hover:scale-105 transition-all shadow-xl shadow-primary/10"
         >
           {/* Trocamos o ícone para garantir que o build passe sem erro */}
           <div className="bg-white/20 p-1 rounded-md">
