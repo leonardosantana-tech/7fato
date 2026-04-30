@@ -8,6 +8,8 @@ const config: Config = {
         background: "#1a1a1a",
         header: "#141414",
         primary: "#09a401",
+        gbg: "#0b2918",
+        bbg: "#010101",
       },
     },
   },
