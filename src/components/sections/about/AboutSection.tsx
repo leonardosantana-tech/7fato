@@ -106,7 +106,7 @@ export default function AboutSection() {
           <p className="text-gray-400 text-lg leading-relaxed italic">
             CEO e Produtor da 7FATO,{" "}
             <span className="text-white font-bold text-primary"> Akally</span> é
-            um artista conhecido por sua sonoridade diferenciada, pela sua
+            um artista conhecido por sua sonoridade diferenciada, pelo sua
             versatilidade em trabalhar com diversos genêros musicais e pela seu
             talento com instrumentos, como a guitarra.
           </p>
