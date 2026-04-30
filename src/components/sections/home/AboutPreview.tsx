@@ -1,7 +1,15 @@
 export default function AboutPreview() {
   return (
-    <section className="py-24 bg-black">
-      <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-24 overflow-hidden bg-gbg">
+      {/* 
+          Ajustamos o gradiente:
+          - from-transparent: começa do topo
+          - via-gbg/40: movemos o ponto médio para 20% (surgindo mais cedo)
+          - to-black: forçamos o preto a começar a dominar a partir de 60% da altura
+      */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gbg/40 via-30% to-black to-60% z-0" />
+
+      <div className="relative z-10 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h2 className="text-4xl font-black italic uppercase tracking-tighter mb-6">
             A Identidade <br />

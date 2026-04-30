@@ -26,18 +26,18 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <motion.span
+        {/* <motion.span
           className="text-xs font-bold uppercase tracking-[0.3em] text-white/50 mb-4 block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
           Produção Musical Profissional
-        </motion.span>
+        </motion.span> */}
 
         <h1 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6">
           O Próximo Hit <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary/40">
             Começa Aqui.
           </span>
         </h1>
